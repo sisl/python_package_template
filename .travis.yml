@@ -21,7 +21,6 @@ after_success:
   - coveralls
   - travis-sphinx deploy
 
-
 # deploy:
 #   provider: pypi
 #   user:

@@ -1,9 +1,9 @@
 | Testing | Coverage | Documentation |
 | :-----: | :------: | :-----------: |
-| [![Build Status](https://travis-ci.org/duncaneddy/python_package_template.svg?branch=master)](https://travis-ci.org/duncaneddy/python_package_template) | [![Coverage Status](https://coveralls.io/repos/github/duncaneddy/python_package_template/badge.svg?branch=master)](https://coveralls.io/github/duncaneddy/python_package_template?branch=master) | [![](https://img.shields.io/badge/docs-stable-blue.svg)](https://duncaneddy.github.iopython_package_template) |
+| [![Build Status](https://travis-ci.org/sisl/python_package_template.svg?branch=master)](https://travis-ci.org/sisl/python_package_template) | [![Coverage Status](https://coveralls.io/repos/github/sisl/python_package_template/badge.svg?branch=master)](https://coveralls.io/github/sisl/python_package_template?branch=master) | [![](https://img.shields.io/badge/docs-stable-blue.svg)](https://sisl.github.iopython_package_template) |
 
 # python_package_template
-python_package_template provides an example Julia project template to quickly setup
+python_package_template provides an example python project template to quickly setup
 continuous integration, test coverage reports, and automatic documentation deployment.
 
 ## Documentation
@@ -12,7 +12,7 @@ The documentation for the package can be found here: <https://sisl.github.io/pyt
 
 More example code and examples will be added as time permits.
 
-## Configuring Package Name
+## Package structure
 
 To start off with, look through the package and replace `python_package_template` 
 with your own project name.
@@ -20,9 +20,11 @@ with your own project name.
 `deps` contains C/C++ file dependencies of the packages which are compiled when
 the package is installed by using the BinDeps.jl package.
 
-`docs` contains
+`docs` contains Sphinx documentation which is automatically build from in-code 
+comments and deployed
 
-`src` contains the Julia source code of the package.
+`python_package_template` contains the python source code of the package. This 
+folder should be renamed to match your package name.
 
 `test` contains unit tests which can be run locally
 
@@ -32,31 +34,20 @@ It is possible to test the package and code locally before commiting the update
 and triggering a CI build. 
 
 First, open a terminal window and navigate to the package root directory and 
-start Julia
+navigate to the package root directory
 
 ```bash
-deddy@Andromeda:~$ cd /Stanford/repos/python_package_template.jl
-deddy@Andromeda:~/Stanford/repos/python_package_template.jl$ julia
-julia>
+cd /Stanford/repos/python_package_template
 ```
 
-Next, activate the local package development environment 
-```julia
-julia> ]
-(v1.0) pkg> activate .
-(python_package_template) pkg> 
+Next, install the requirements needed for testing and running the package
+```bash
+pip3 install -U -r requirements.txt -r test_requirements.txt
 ```
 
-From here we can test the package by simply typing in the `test` command:
-```julia
-(python_package_template) pkg> test
-```
-
-If the package depends on C/C++ source files, these first must be compiled before
-testing the package. In which case testing would involve two commands:
-```julia
-(python_package_template) pkg> build
-(python_package_template) pkg> test
+From here we can test the package by simply typing in the `pytest` command:
+```bash
+pytest
 ```
 
 ## Setting Up Continuous Integration

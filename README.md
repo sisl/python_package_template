@@ -85,6 +85,14 @@ travis-ci needs to have an access token configured be able to add the documentat
 Follow the [travis-sphinx](https://github.com/Syntaf/travis-sphinx) documentation
 to setup a personal access token for travis to deploy documentation to github pages.
 
+Note: Github has since moved the location where you generate/manage personal access
+tokens (the travis-sphinx documentation is out of date). You can now generate 
+access tokens from your personal settings at:
+
+```
+Settings -> Developer Settings -> Personal Access Tokens
+```
+
 If you have not already done so, you also need to enable github pages as the deployment
 end-point which can be done by following step 1 of the documentation for [github pages](https://pages.github.com/).
 
